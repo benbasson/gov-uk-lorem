@@ -1,0 +1,61 @@
+body {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.heading {
+  margin-left: 20px;
+}
+
+.heading p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.container {
+  max-width: 700px;
+}
+
+h1 {
+  font-size: 2em;
+  margin-top: 0.35em;
+  margin-bottom: 0.1em;
+}
+
+.content-wrapper {
+  margin: 0 4em;
+}
+
+.panel-heading {
+  padding: 20px;
+}
+
+.panel-body {
+  padding: 30px;
+}
+
+.well {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.results-container {
+  margin-top: 30px;
+}
+
+.alert {
+  margin-bottom: 0;
+}
+
+.panel-footer p {
+  margin: 0;
+}
+
+.licence p {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+span.tag-line {
+  white-space: nowrap;
+}

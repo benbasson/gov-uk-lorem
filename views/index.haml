@@ -1,0 +1,55 @@
+!!!
+%html
+  %head
+    %meta{http: {equiv: 'Content-Type'}, content: 'text/html; charset=UTF-8'}
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1'}
+    %title< GOV.UK Lorem
+    %link{href: '/css/bootstrap.min.css', rel: 'stylesheet', media: 'screen'}
+    %link{href: '/css/style.css', rel: 'stylesheet', media: 'screen'}
+  %body
+    .container
+      .row.outer-row
+        .col-md-12
+          .panel.panel-default
+            .panel-heading
+              .row
+                .col-md-2
+                  %div
+                    %img{:src => 'img/govuk.png'}
+                .col-md-10
+                  %div.heading
+                    %h1 GOV.UK Lorem
+                    %p
+                      Sourcing your five-a-day filler text snippets from UK Government announcements.
+                      %span.tag-line Served randomly.
+                      %span.tag-line Not endorsed by GOV.UK.
+            .panel-body
+              %form{:action => '/', :method => 'GET'}
+                .row
+                  .col-md-6
+                    .form-group
+                      %label Number of paragraphs
+                      %input.form-control{:type => 'number', :name => 'paragraphs', :value => @num_paragraphs}
+                  .col-md-6
+                    .form-group
+                      %label Minimum words in each paragraph
+                      %input.form-control{:type => 'number', :name => 'minimum-word-count', :value => @min_words}
+                %input.btn.btn-primary{:type => 'submit', :value => 'Give me filler text'}
+              .results-container
+                - if @fragments.size > 0
+                  .well
+                    - @fragments.each do |fragment|
+                      %p
+                        = fragment
+                - else
+                  .alert.alert-danger
+                    Couldn't find any filler text with these criteria, please make them more reasonable and try again.
+        .licence.text-center
+          :markdown
+            GOV.UK Lorem was created by <a href="http://www.basson.at" rel="me" markdown="1">Ben Basson</a>. View the source on [GitHub](https://github.com/benbasson/gov-uk-lorem).
+            <br markdown="1">
+            Data sourced dynamically from the [GOV.UK Announcements](https://www.gov.uk/government/announcements) Atom feed.
+            <br markdown="1">
+            Contains public sector information licensed under the [Open Government Licence v3.0](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/).
+    %script{src: '/js/jquery-2.0.3.min.js'}
+    %script{src: '/js/bootstrap.min.js'}
