@@ -6,6 +6,7 @@ require 'nokogiri'
 require 'rdiscount'
 
 TELEPHONE_NUMBER_REGEX = /([0-9]+\s){3,}/
+FILE_SIZE_REGEX = /[0-9]+\.?[0-9]*\s?(KB|MB)/i
 GOV_UK_ANNOUNCEMENTS_URL = 'https://www.gov.uk/government/announcements.atom'
 DEFAULT_PARAGRAPHS = 5
 DEFAULT_MIN_WORDS = 20
@@ -78,6 +79,7 @@ get '/:paragraphs?' do
       text_fragments.add text unless
         text.include? '@' or # exclude paragraphs that are mostly contact details
           text.match TELEPHONE_NUMBER_REGEX or # exclude paragraphs that are mostly contact details
+          text.match FILE_SIZE_REGEX or # exclude paragraphs that contain file size information
           text.include? 'Thank you' or # exclude personal messages of thanks
           text.include? ':' or # exclude lists and/or news item style snippets
           text.split(/\s/).size < min_words # exclude anything with fewer words than requested
